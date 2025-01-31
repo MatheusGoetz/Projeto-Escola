@@ -42,7 +42,6 @@ export default {
   name: 'ListaAlunos',
   data(){
     return {
-      nome: '',
       alunos: []
     }
   },
@@ -57,18 +56,19 @@ export default {
   methods: {
     addAluno(){
       let _aluno = {
+        id: this.alunos.length + 1,
         nome: this.nome,
-        sobrenome: ''
+        sobrenome: ""
       }
       this.$http
       .post('http://localhost:3000/alunos', _aluno)
       .then(res => res.json())
-      
-      this.alunos.push(_aluno);
-      this.nome = '';
+      .then(() => {
+        this.alunos.push(_aluno);
+        this.nome = '';
+      })
     },
     remover(aluno){
-
       this.$http
       .delete(`http://localhost:3000/alunos/${aluno.id}`)
       .then(() => {
