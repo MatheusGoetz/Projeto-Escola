@@ -1,16 +1,27 @@
 <template>
   <div id="app">
-    <Alunos/>
+    <Nav></Nav>
+    <div class="menuNav">
+      <!--<Alunos/>-->
+      <!--<Professor/>-->
+      <Sobre/>
+    </div>
   </div>
 </template>
 
 <script>
 import Alunos from './components/Aluno/Alunos.vue'
+import Professor from './components/Professor/Professor.vue'
+import Sobre from './components/Sobre/Sobre.vue'
+import Nav from './components/_nav/Nav.vue'
 
 export default {
   name: 'app',
   components: {
-    Alunos
+    Alunos,
+    Professor,
+    Sobre,
+    Nav
   }
 }
 </script>
@@ -18,7 +29,13 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap');
 
+.menuNav {
+  width: 50%;
+  margin: auto;
+}
+
 #app {
+  width: 100%;
 }
 
 body,html{
@@ -27,7 +44,6 @@ body,html{
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   background-color: rgb(185, 216, 250);
   font-family: 'Roboto', sans-serif;

@@ -17,16 +17,13 @@
           <td>{{aluno.id}}</td>
           <td>{{aluno.nome}} {{aluno.sobrenome}}</td>
           <td>
-            <button class="btn btn_Danger" @click="remover()">Remover</button>
+            <button class="btn btn_Danger" @click="remover(aluno)">Remover</button>
           </td>
         </tr>
       </tbody>
-      
     </table>
     <div class="footer">
-      <tfoot v-if="!alunos.length">
-        Nenhum Aluno Encontrado
-      </tfoot>
+      <tfoot v-if="!alunos.length"> Nenhum Aluno Encontrado </tfoot>
     </div>
 
   </div>
@@ -42,7 +39,8 @@ export default {
   name: 'ListaAlunos',
   data(){
     return {
-      alunos: []
+      alunos: [],
+      nome: ''
     }
   },
   created() {
@@ -70,17 +68,18 @@ export default {
     },
     remover(aluno){
       this.$http
-      .delete(`http://localhost:3000/alunos/${aluno.id}`)
+      .delete('http://localhost:3000/alunos/', aluno.id)
       .then(() => {
         let indice = this.alunos.indexOf(aluno);
         this.alunos.splice(indice, 1);
       })
-    }
+    } 
   }
 }
 </script>
 <style scoped>
   input{
+    width: calc(100% - 195px);
     margin-bottom: 10px;
     border-radius: 5px 0px 0px 5px;
     border: 0;
