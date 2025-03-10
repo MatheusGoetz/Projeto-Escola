@@ -7,10 +7,10 @@
 </template>
 
 <script>
-import Titulo from '../_share/Titulo.vue'
+import Titulo from '../_share/Titulo';
 
   export default {
-    comments: {
+    components: {
       Titulo
     }
   }

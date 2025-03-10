@@ -1,9 +1,9 @@
 <template>
   <div class="barraTop">
     <nav class="menuNav">
-      <a href="">Alunos</a>
-      <a href="">Professores</a>
-      <a href="">Sobre</a>
+      <router-link to="/professores">Professores</router-link>
+      <router-link to="/alunos">Alunos</router-link>
+      <router-link to="/sobre">Sobre</router-link>
     </nav>
   </div>
 </template>
@@ -16,7 +16,7 @@
 
 <style scoped>
 .barraTop{
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(35, 85, 141);
 }
 
 .menuNav{
@@ -34,6 +34,11 @@ nav a {
   color: rgb(0, 110, 255);
   font-weight: bold;
   margin-right: 15px;
+}
+
+nav .router-link-active{
+  background-color: rgb(152, 198, 214);
+  color: white;
 }
 
 </style>
